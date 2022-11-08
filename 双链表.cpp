@@ -1,20 +1,20 @@
 #include<stdio.h>
 #include<stdlib.h>
-//Ë«Á´±í½á¹¹
+//åŒé“¾è¡¨ç»“æ„
 typedef struct LNode {
 	int val;
 	LNode* next;
 	LNode* prior;
 }LNode,*Linklist;
 
-//Î²²å½¨±í
+//å°¾æ’å»ºè¡¨
 void CreateLinkList(Linklist& L) {
 	L = new LNode;
 	L->next = L;
 	L->prior = L;
 	LNode* p = L;
 	int a;
-	printf("ÇëÊäÈë±íµÄÊı¾İ:\n");
+	printf("è¯·è¾“å…¥è¡¨çš„æ•°æ®:\n");
 	scanf_s("%d", &a);
 	while (a!=9999) {
 		LNode* s = new LNode;
@@ -28,7 +28,7 @@ void CreateLinkList(Linklist& L) {
 	}
 	
 }
-//´òÓ¡Á´±í
+//æ‰“å°é“¾è¡¨
 void ShowList(Linklist L) {
 	LNode* p = L->next;
 	while (p != L) {
@@ -36,7 +36,7 @@ void ShowList(Linklist L) {
 		p = p->next;
 	}
 }
-//ÅĞ¶Ï¶Ô³Æ
+//åˆ¤æ–­å¯¹ç§°
 bool IsSym(Linklist L) {
 	LNode* p = L->next, * r = L->prior;
 	while (p != r) {
@@ -63,7 +63,7 @@ void CirlistAandB(Linklist &L1,Linklist L2) {
 }
 void main() {
 	Linklist L,L1; int a,b;
-	printf("1.ÅĞ¶Ï¶Ô³Æ\n2.Á´½ÓÁ½±í\n");
+	printf("1.åˆ¤æ–­å¯¹ç§°\n2.é“¾æ¥ä¸¤è¡¨\n");
 	scanf_s("%d", &a);
 	switch (a)
 	{
@@ -72,12 +72,12 @@ void main() {
 		b = IsSym(L);
 		printf("%d", b);
 	case 2:
-		printf("ÇëÊäÈë±í1£º\n");
+		printf("è¯·è¾“å…¥è¡¨1ï¼š\n");
 		CreateLinkList(L);
-		printf("ÇëÊäÈë±í2£º\n");
+		printf("è¯·è¾“å…¥è¡¨2ï¼š\n");
 		CreateLinkList(L1);
 		CirlistAandB(L, L1);
-		printf("ºÏ²¢ºóµÄ±í£º\n");
+		printf("åˆå¹¶åçš„è¡¨ï¼š\n");
 		ShowList(L);
 	default:
 		break;
